@@ -1,7 +1,7 @@
 # LoGIC
 Code for AISTATS 2026 Paper: [Unified Causal Discovery and Missing Data Imputation](https://openreview.net/forum?id=tNPrpkP1tb)
 
-Use `main.py` to see an example of how the code works. I have additionally copied [sep-distances](https://github.com/JonasChoice/sep_distances) repository from JonasChoice to make it easy to compute separation distances should you require it.
+Use **`main.py`** to see an example of how the code works. I have additionally copied [sep-distances](https://github.com/JonasChoice/sep_distances) repository from JonasChoice to make it easy to compute separation distances should you require it.
 
 ## Required Packages
 sortedcontainers  
