@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # LoGIC
 Code for AISTATS 2026 Paper: [Unified Causal Discovery and Missing Data Imputation](https://openreview.net/forum?id=tNPrpkP1tb)
 
