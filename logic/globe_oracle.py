@@ -1,0 +1,43 @@
+import numpy as np
+from logic.globe_score import GLOBEScore
+
+class GLOBEOracle:
+    
+    def __init__(self,alpha=0.01):
+        self.score         = GLOBEScore(cache_result=False)
+        self.sig_threshold = -np.log2(alpha)
+        self.dims          = None
+        self.indp          = None
+        self.name_         = 'Globe     Oracle'
+                
+    def init_independence(self,dims):
+        self.indp = np.eye(dims)*0
+        self.dims = dims
+        for i in range(self.dims):
+            for j in range(self.dims):
+                self.indp[i,j]=-1
+        
+    def is_independent(self,x,y,data):
+        if self.indp[x,y] == -1:
+            
+            chunk = data[:,[x,y]]
+            complete_chunk = chunk[~np.isnan(chunk).any(axis=1)]
+
+            #in completed chunk, x will be 0th index and y will always be 1st index
+            delta_xy = self.score.compute_gain(complete_chunk,1,[],0,False) #compute(data, i: int, PAi: List[int])
+            delta_yx = self.score.compute_gain(complete_chunk,0,[],1,False)
+
+            #to check if difference in compression is significant, if not we could declare that these variables don't have an edge between them
+            indep = np.abs(np.max([delta_xy,delta_yx])) < self.sig_threshold
+            #print(x,"/",y,": ",np.abs(np.max([delta_xy,delta_yx])))
+            
+            self.indp[x,y] = indep
+            self.indp[y,x] = indep
+
+        return self.indp[x,y]
+        
+        
+        
+
+    
+    
