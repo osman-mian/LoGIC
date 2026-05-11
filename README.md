@@ -1,11 +1,14 @@
 # LoGIC
 Code for AISTATS 2026 Paper: Unified Causal Discovery and Missing Data Imputation
 
+Use `main.py` to see an example of how the code works. I have additionally copied [https://github.com/JonasChoice/sep_distances](sep-distances) repository from JonasChoice to make it easy to compute separation distances should you require it.
+
 ## Required Packages.
 sortedcontainers
 ordered_set
 loguru
 gadjid
+cdt
 rpy2 (to run the Multivariate Adaptive Regression Splines (MARS) that is used by GLOBE algorithm)
 
 ## Reproducibility
