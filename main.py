@@ -41,7 +41,8 @@ def main():
 
             print("Predicted graph: ")
             print(pred)
-            
+
+            #calculate statistics such as RMSE, SID and Imputation Rates (IR) if the ground truth graph is available
             if graph is not None:
                 rmse,ir               = rmse_loss(data,midata,mask)
                 shd,sid,paid,tp,fp,fn = calc_ud_stats(pred,graph,iscpdag)
